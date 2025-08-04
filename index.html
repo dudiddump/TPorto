@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Portfolio | Talitha Khansa</title>
+    <title>Portfolio | Talitha Khansa Fahira</title>
     
     <!-- Tailwind CSS CDN -->
     <script src="https://cdn.tailwindcss.com"></script>
@@ -17,26 +17,34 @@
     <script src="https://unpkg.com/lucide@latest"></script>
 
     <style>
-        /* Menggunakan font Exo 2 sebagai default untuk body */
+        /* Default font for body */
         body {
             font-family: 'Exo 2', sans-serif;
         }
-        /* Menggunakan font Orbitron untuk semua heading */
-        h1, h2, h3 {
+        /* Font for headings */
+        h1, h2, h3, h4 {
             font-family: 'Orbitron', sans-serif;
         }
-        /* Efek backdrop-blur untuk header */
+        /* Header blur effect */
         .header-blur {
             backdrop-filter: blur(10px);
             -webkit-backdrop-filter: blur(10px);
         }
-        /* Style untuk timeline */
+        /* Timeline alignment */
         .timeline-item:nth-child(odd) .timeline-content {
             text-align: right;
         }
+        /* Modal styles */
+        .modal {
+            transition: opacity 0.25s ease;
+        }
+        body.modal-active {
+            overflow-x: hidden;
+            overflow-y: hidden;
+        }
     </style>
     <script>
-        // Konfigurasi Tailwind CSS untuk tema warna
+        // Tailwind CSS theme configuration
         tailwind.config = {
             darkMode: 'class',
             theme: {
@@ -47,16 +55,16 @@
                     },
                     colors: {
                         // Light Mode Colors
-                        'primary-light': '#1e3a8a', // Biru tua
-                        'secondary-light': '#f1f5f9', // Latar belakang abu-abu muda
-                        'accent-light': '#be123c', // Merah mawar
-                        'text-light': '#111827', // Teks hitam pekat
+                        'primary-light': '#1e3a8a', 
+                        'secondary-light': '#f1f5f9',
+                        'accent-light': '#be123c',
+                        'text-light': '#111827',
                         
                         // Dark Mode Colors
-                        'primary-dark': '#60a5fa', // Biru muda
-                        'secondary-dark': '#0f172a', // Latar belakang biru sangat tua
-                        'accent-dark': '#f43f5e', // Merah muda cerah
-                        'text-dark': '#e2e8f0', // Teks putih keabuan
+                        'primary-dark': '#60a5fa',
+                        'secondary-dark': '#0f172a',
+                        'accent-dark': '#f43f5e',
+                        'text-dark': '#e2e8f0',
                     }
                 }
             }
@@ -68,7 +76,7 @@
     <!-- Header / Navbar -->
     <header id="header" class="fixed top-0 left-0 right-0 z-50 transition-all duration-300 header-blur bg-white/70 dark:bg-secondary-dark/70">
         <div class="container mx-auto px-6 py-4 flex justify-between items-center">
-            <a href="#" class="text-xl font-bold text-primary-light dark:text-primary-dark" style="font-family: 'Orbitron', sans-serif;">Talitha Khansa</a>
+            <a href="#" class="text-xl font-bold text-primary-light dark:text-primary-dark" style="font-family: 'Orbitron', sans-serif;">Talitha Khansa Fahira</a>
             <nav class="hidden md:flex items-center space-x-8">
                 <a href="#about" class="hover:text-accent-light dark:hover:text-accent-dark transition-colors">About</a>
                 <a href="#experience" class="hover:text-accent-light dark:hover:text-accent-dark transition-colors">Experience</a>
@@ -88,22 +96,19 @@
     <main class="container mx-auto px-6 pt-24 md:pt-32">
         <!-- Hero Section -->
         <section id="hero" class="text-center py-20">
-            <h1 class="text-4xl md:text-6xl font-bold text-primary-light dark:text-primary-dark leading-tight">Talitha Khansa</h1>
-            <p class="mt-4 text-lg md:text-xl font-medium text-gray-600 dark:text-gray-300">Graphic Designer & UI/UX Enthusiast</p>
-            <p class="mt-6 max-w-2xl mx-auto text-base">A Computer Engineering student passionate about creating visually appealing and user-friendly digital products through graphic and UI/UX design.
-
+            <h1 class="text-4xl md:text-6xl font-bold text-primary-light dark:text-primary-dark leading-tight">Talitha Khansa Fahira</h1>
+            <p class="mt-4 text-lg md:text-xl font-medium text-gray-600 dark:text-gray-300">Information Systems & Technology Student</p>
+            <p class="mt-6 max-w-2xl mx-auto text-base">
+                A passionate tech student with a focus on cybersecurity, data, and web development. Proven leader and collaborator.
             </p>
             <div class="mt-8 flex justify-center space-x-4">
-                <a href="https://www.linkedin.com/in/talithakhansa" target="_blank" class="p-3 rounded-full bg-gray-200 dark:bg-gray-700 hover:bg-accent-light dark:hover:bg-accent-dark text-gray-700 dark:text-gray-200 hover:text-white dark:hover:text-white transition-all duration-300">
+                <a href="https://linkedin.com/in/talithakhansa" target="_blank" class="p-3 rounded-full bg-gray-200 dark:bg-gray-700 hover:bg-accent-light dark:hover:bg-accent-dark text-gray-700 dark:text-gray-200 hover:text-white dark:hover:text-white transition-all duration-300">
                     <i data-lucide="linkedin" class="w-6 h-6"></i>
                 </a>
-                <a href="#" class="p-3 rounded-full bg-gray-200 dark:bg-gray-700 hover:bg-accent-light dark:hover:bg-accent-dark text-gray-700 dark:text-gray-200 hover:text-white dark:hover:text-white transition-all duration-300">
-                    <i data-lucide="github" class="w-6 h-6"></i>
+                <a href="https://dudiddump.github.io/TPorto" target="_blank" class="p-3 rounded-full bg-gray-200 dark:bg-gray-700 hover:bg-accent-light dark:hover:bg-accent-dark text-gray-700 dark:text-gray-200 hover:text-white dark:hover:text-white transition-all duration-300">
+                    <i data-lucide="globe" class="w-6 h-6"></i>
                 </a>
-                <a href="#" class="p-3 rounded-full bg-gray-200 dark:bg-gray-700 hover:bg-accent-light dark:hover:bg-accent-dark text-gray-700 dark:text-gray-200 hover:text-white dark:hover:text-white transition-all duration-300">
-                    <i data-lucide="dribbble" class="w-6 h-6"></i>
-                </a>
-                <a href="mailto:gantidenganemailanda@example.com" class="p-3 rounded-full bg-gray-200 dark:bg-gray-700 hover:bg-accent-light dark:hover:bg-accent-dark text-gray-700 dark:text-gray-200 hover:text-white dark:hover:text-white transition-all duration-300">
+                <a href="mailto:its.ithaaa@gmail.com" class="p-3 rounded-full bg-gray-200 dark:bg-gray-700 hover:bg-accent-light dark:hover:bg-accent-dark text-gray-700 dark:text-gray-200 hover:text-white dark:hover:text-white transition-all duration-300">
                     <i data-lucide="mail" class="w-6 h-6"></i>
                 </a>
             </div>
@@ -112,24 +117,51 @@
         <!-- About Section -->
         <section id="about" class="py-20">
             <h2 class="text-3xl font-bold text-center text-primary-light dark:text-primary-dark mb-12">About Me</h2>
-            <div class="grid md:grid-cols-5 gap-10 items-center">
+            
+            <!-- Profile Picture and Intro Text -->
+            <div class="grid md:grid-cols-5 gap-10 items-center mb-16">
                 <div class="md:col-span-2">
-                    <img src="https://media.licdn.com/dms/image/D5603AQF39F80p_F5hQ/profile-displayphoto-shrink_800_800/0/1710131871329?e=1728518400&v=beta&t=H-3uX9-e93H2J02p9pD9k1Y0m7s7z5w3B4C6w2R7x3Y" onerror="this.onerror=null;this.src='https://placehold.co/400x400/e2e8f0/1e3a8a?text=Foto+Anda';" alt="Foto Talitha Khansa" class="rounded-lg shadow-lg w-full">
+                     <img src="http://googleusercontent.com/file_content/1" onerror="this.onerror=null;this.src='MyPhoto.jpg';" alt="Photo of Talitha Khansa Fahira" class="rounded-lg shadow-lg w-full max-w-sm mx-auto">
                 </div>
                 <div class="md:col-span-3">
-                    <p class="mb-4">
-                        I am a Computer Engineering student at Politeknik Negeri Jakarta (class of 2022) with a great passion for the world of design. I believe that good design is a blend of beautiful aesthetics and intuitive functionality.
-                    </p> 
-                    <p class="mb-6">
-                        Selama berkuliah, saya aktif terlibat dalam berbagai kepanitiaan dan organisasi, serta mengikuti kompetisi untuk mengasah kemampuan saya dalam desain UI/UX dan desain grafis. Saya selalu antusias untuk mempelajari hal-hal baru dan berkolaborasi dalam tim untuk menciptakan solusi digital yang berdampak.
+                    <p class="text-lg text-gray-800 dark:text-gray-200">
+                        An Information Systems & Technology student (GPA 3.95) and the current President of the Student Executive Board (BEM). Possesses a strong foundation in technology with practical skills in data analysis, coding, and cybersecurity, complemented by proven leadership and collaborative abilities.
                     </p>
-                    <h3 class="text-lg font-semibold mb-4 text-primary-light dark:text-primary-dark">Keahlian Utama:</h3>
-                    <div class="flex flex-wrap gap-3">
-                        <span class="bg-blue-100 text-blue-800 text-sm font-medium me-2 px-2.5 py-0.5 rounded dark:bg-blue-900 dark:text-blue-300">Figma</span>
-                        <span class="bg-red-100 text-red-800 text-sm font-medium me-2 px-2.5 py-0.5 rounded dark:bg-red-900 dark:text-red-300">UI/UX Design</span>
-                        <span class="bg-green-100 text-green-800 text-sm font-medium me-2 px-2.5 py-0.5 rounded dark:bg-green-900 dark:text-green-300">Graphic Design</span>
-                        <span class="bg-yellow-100 text-yellow-800 text-sm font-medium me-2 px-2.5 py-0.5 rounded dark:bg-yellow-900 dark:text-yellow-300">Adobe Photoshop</span>
-                        <span class="bg-indigo-100 text-indigo-800 text-sm font-medium me-2 px-2.5 py-0.5 rounded dark:bg-indigo-900 dark:text-indigo-300">Adobe Illustrator</span>
+                </div>
+            </div>
+
+            <!-- Education and Skills -->
+            <div class="grid md:grid-cols-2 gap-10 items-start">
+                <div>
+                    <h3 class="text-2xl font-bold text-primary-light dark:text-primary-dark mb-4">Education</h3>
+                    <div class="bg-white dark:bg-slate-800 p-6 rounded-lg shadow-md h-full">
+                        <h4 class="font-bold">Bachelor of Computer Science</h4>
+                        <p class="text-primary-light dark:text-primary-dark font-semibold">Cyber University, Jakarta</p>
+                        <p class="text-sm text-gray-500 dark:text-gray-400">Sep 2023 - Sep 2027 (Expected)</p>
+                        <p class="mt-2">Major: Information Systems & Technology</p>
+                        <p>Current GPA: 3.95 / 4.00</p>
+                    </div>
+                </div>
+                <div>
+                    <h3 class="text-2xl font-bold text-primary-light dark:text-primary-dark mb-4">Technical Skills</h3>
+                    <div class="space-y-4">
+                        <div class="bg-white dark:bg-slate-800 p-4 rounded-lg shadow-md">
+                            <h4 class="font-bold">UI/UX Design</h4>
+                            <p>Figma</p>
+                        </div>
+                        <div class="bg-white dark:bg-slate-800 p-4 rounded-lg shadow-md">
+                            <h4 class="font-bold">Data Analysis</h4>
+                            <p>Microsoft Excel, Python, SQL</p>
+                        </div>
+                        <div class="bg-white dark:bg-slate-800 p-4 rounded-lg shadow-md">
+                            <h4 class="font-bold">Web Development</h4>
+                            <p>Frontend: HTML, CSS, React.js</p>
+                            <p>Backend: Node.js, Express.js, MySQL</p>
+                        </div>
+                         <div class="bg-white dark:bg-slate-800 p-4 rounded-lg shadow-md">
+                            <h4 class="font-bold">Cyber Security</h4>
+                            <p>Network Security, Penetration Testing (Beginner), Cryptography</p>
+                        </div>
                     </div>
                 </div>
             </div>
@@ -141,42 +173,53 @@
             <div class="relative max-w-3xl mx-auto">
                 <div class="absolute left-1/2 w-0.5 h-full bg-gray-300 dark:bg-gray-600 transform -translate-x-1/2"></div>
                 
-                <!-- Experience Item 1 -->
                 <div class="mb-8 flex justify-between items-center w-full timeline-item">
                     <div class="order-1 w-5/12"></div>
-                    <div class="z-20 flex items-center order-1 bg-accent-light dark:bg-accent-dark shadow-xl w-8 h-8 rounded-full">
-                        <i data-lucide="briefcase" class="w-4 h-4 mx-auto text-white"></i>
-                    </div>
+                    <div class="z-20 flex items-center order-1 bg-accent-light dark:bg-accent-dark shadow-xl w-8 h-8 rounded-full"><i data-lucide="plane" class="w-4 h-4 mx-auto text-white"></i></div>
                     <div class="order-1 bg-white dark:bg-slate-800 rounded-lg shadow-xl w-5/12 px-6 py-4 timeline-content">
-                        <h3 class="font-bold text-primary-light dark:text-primary-dark text-lg">Graphic Designer</h3>
-                        <p class="text-sm font-medium text-gray-600 dark:text-gray-400">Himpunan Mahasiswa Teknik Komputer PNJ</p>
-                        <p class="text-sm text-gray-500 dark:text-gray-500">Aug 2023 - Present</p>
+                        <h3 class="font-bold text-primary-light dark:text-primary-dark text-lg">Student Exchange Participant</h3>
+                        <p class="text-sm font-medium text-gray-600 dark:text-gray-400">Universiti Teknologi PETRONAS</p>
+                        <p class="text-sm text-gray-500 dark:text-gray-500">Jun 2025 - Aug 2025</p>
                     </div>
                 </div>
 
-                <!-- Experience Item 2 -->
                 <div class="mb-8 flex justify-between flex-row-reverse items-center w-full timeline-item">
                     <div class="order-1 w-5/12"></div>
-                    <div class="z-20 flex items-center order-1 bg-accent-light dark:bg-accent-dark shadow-xl w-8 h-8 rounded-full">
-                        <i data-lucide="users" class="w-4 h-4 mx-auto text-white"></i>
-                    </div>
+                    <div class="z-20 flex items-center order-1 bg-accent-light dark:bg-accent-dark shadow-xl w-8 h-8 rounded-full"><i data-lucide="crown" class="w-4 h-4 mx-auto text-white"></i></div>
                     <div class="order-1 bg-white dark:bg-slate-800 rounded-lg shadow-xl w-5/12 px-6 py-4 timeline-content">
-                        <h3 class="font-bold text-primary-light dark:text-primary-dark text-lg">Staff of Creative Media</h3>
-                        <p class="text-sm font-medium text-gray-600 dark:text-gray-400">Pekan Olahraga dan Seni PNJ 2024</p>
-                        <p class="text-sm text-gray-500 dark:text-gray-500">Mar 2024 - May 2024</p>
+                        <h3 class="font-bold text-primary-light dark:text-primary-dark text-lg">President</h3>
+                        <p class="text-sm font-medium text-gray-600 dark:text-gray-400">Student Executive Board (BEM)</p>
+                        <p class="text-sm text-gray-500 dark:text-gray-500">Feb 2025 - Present</p>
                     </div>
                 </div>
 
-                <!-- Experience Item 3 -->
                 <div class="mb-8 flex justify-between items-center w-full timeline-item">
                     <div class="order-1 w-5/12"></div>
-                    <div class="z-20 flex items-center order-1 bg-accent-light dark:bg-accent-dark shadow-xl w-8 h-8 rounded-full">
-                        <i data-lucide="star" class="w-4 h-4 mx-auto text-white"></i>
-                    </div>
+                    <div class="z-20 flex items-center order-1 bg-accent-light dark:bg-accent-dark shadow-xl w-8 h-8 rounded-full"><i data-lucide="megaphone" class="w-4 h-4 mx-auto text-white"></i></div>
                     <div class="order-1 bg-white dark:bg-slate-800 rounded-lg shadow-xl w-5/12 px-6 py-4 timeline-content">
-                        <h3 class="font-bold text-primary-light dark:text-primary-dark text-lg">Staff of Creative Division</h3>
-                        <p class="text-sm font-medium text-gray-600 dark:text-gray-400">Regeneration of HMTK PNJ 2023</p>
-                        <p class="text-sm text-gray-500 dark:text-gray-500">Oct 2023 - Dec 2023</p>
+                        <h3 class="font-bold text-primary-light dark:text-primary-dark text-lg">Campus Ambassador</h3>
+                        <p class="text-sm font-medium text-gray-600 dark:text-gray-400">Cyber University</p>
+                        <p class="text-sm text-gray-500 dark:text-gray-500">Feb 2025 - Present</p>
+                    </div>
+                </div>
+
+                <div class="mb-8 flex justify-between flex-row-reverse items-center w-full timeline-item">
+                    <div class="order-1 w-5/12"></div>
+                    <div class="z-20 flex items-center order-1 bg-accent-light dark:bg-accent-dark shadow-xl w-8 h-8 rounded-full"><i data-lucide="code-2" class="w-4 h-4 mx-auto text-white"></i></div>
+                    <div class="order-1 bg-white dark:bg-slate-800 rounded-lg shadow-xl w-5/12 px-6 py-4 timeline-content">
+                        <h3 class="font-bold text-primary-light dark:text-primary-dark text-lg">Staff - HR Division</h3>
+                        <p class="text-sm font-medium text-gray-600 dark:text-gray-400">Coding Club Cyber University</p>
+                        <p class="text-sm text-gray-500 dark:text-gray-500">Feb 2025 - Present</p>
+                    </div>
+                </div>
+
+                <div class="mb-8 flex justify-between items-center w-full timeline-item">
+                    <div class="order-1 w-5/12"></div>
+                    <div class="z-20 flex items-center order-1 bg-accent-light dark:bg-accent-dark shadow-xl w-8 h-8 rounded-full"><i data-lucide="users" class="w-4 h-4 mx-auto text-white"></i></div>
+                    <div class="order-1 bg-white dark:bg-slate-800 rounded-lg shadow-xl w-5/12 px-6 py-4 timeline-content">
+                        <h3 class="font-bold text-primary-light dark:text-primary-dark text-lg">Member - HR Division</h3>
+                        <p class="text-sm font-medium text-gray-600 dark:text-gray-400">Student Executive Board (BEM)</p>
+                        <p class="text-sm text-gray-500 dark:text-gray-500">Feb 2024 - Feb 2025</p>
                     </div>
                 </div>
             </div>
@@ -186,40 +229,38 @@
         <section id="projects" class="py-20">
             <h2 class="text-3xl font-bold text-center text-primary-light dark:text-primary-dark mb-12">Featured Projects</h2>
             <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
-                <!-- Project Card 1 -->
                 <div class="bg-white dark:bg-slate-800 rounded-lg shadow-lg overflow-hidden transform hover:-translate-y-2 transition-transform duration-300">
-                    <img src="https://placehold.co/600x400/fecdd3/be123c?text=Help-U+App" alt="Project Help-U" class="w-full h-48 object-cover">
+                    <img src="https://placehold.co/600x400/fecdd3/be123c?text=BI+OJK+Hackathon" alt="BI OJK Hackathon 2025" class="w-full h-48 object-cover">
                     <div class="p-6">
-                        <h3 class="font-bold text-lg text-primary-light dark:text-primary-dark">UI/UX "Help-U" App</h3>Interface design for a mental health application. Project for PNJ Innovation Fest 2024 Hackathon.
-
+                        <h3 class="font-bold text-lg text-primary-light dark:text-primary-dark">BI OJK Hackathon 2025</h3>
+                        <p class="text-sm mt-2 mb-4 text-gray-600 dark:text-gray-400">Developed a fintech solution prototype during the Bank Indonesia & OJK Hackathon.</p>
                         <div class="flex flex-wrap gap-2">
-                            <span class="text-xs bg-red-100 text-red-800 px-2 py-1 rounded-full dark:bg-red-900 dark:text-red-300">UI/UX</span>
+                            <span class="text-xs bg-red-100 text-red-800 px-2 py-1 rounded-full dark:bg-red-900 dark:text-red-300">Fintech</span>
+                            <span class="text-xs bg-blue-100 text-blue-800 px-2 py-1 rounded-full dark:bg-blue-900 dark:text-blue-300">UI/UX</span>
+                            <span class="text-xs bg-purple-100 text-purple-800 px-2 py-1 rounded-full dark:bg-purple-900 dark:text-purple-300">Hackathon</span>
+                        </div>
+                    </div>
+                </div>
+                <div class="bg-white dark:bg-slate-800 rounded-lg shadow-lg overflow-hidden transform hover:-translate-y-2 transition-transform duration-300">
+                    <img src="https://placehold.co/600x400/bfdbfe/1e3a8a?text=Hackathon+Purse" alt="Hackathon Purse Project" class="w-full h-48 object-cover">
+                    <div class="p-6">
+                        <h3 class="font-bold text-lg text-primary-light dark:text-primary-dark">Hackathon Purse</h3>
+                        <p class="text-sm mt-2 mb-4 text-gray-600 dark:text-gray-400">Designed and prototyped a digital wallet application focused on security and ease of use.</p>
+                         <div class="flex flex-wrap gap-2">
+                            <span class="text-xs bg-red-100 text-red-800 px-2 py-1 rounded-full dark:bg-red-900 dark:text-red-300">e-Wallet</span>
                             <span class="text-xs bg-blue-100 text-blue-800 px-2 py-1 rounded-full dark:bg-blue-900 dark:text-blue-300">Figma</span>
                             <span class="text-xs bg-purple-100 text-purple-800 px-2 py-1 rounded-full dark:bg-purple-900 dark:text-purple-300">Hackathon</span>
                         </div>
                     </div>
                 </div>
-                <!-- Project Card 2 -->
                 <div class="bg-white dark:bg-slate-800 rounded-lg shadow-lg overflow-hidden transform hover:-translate-y-2 transition-transform duration-300">
-                    <img src="https://placehold.co/600x400/bfdbfe/1e3a8a?text=Waste-Less+App" alt="Project Waste-Less" class="w-full h-48 object-cover">
+                    <img src="https://placehold.co/600x400/e0e7ff/3730a3?text=LearnPath+Project" alt="LearnPath Project" class="w-full h-48 object-cover">
                     <div class="p-6">
-                        <h3 class="font-bold text-lg text-primary-light dark:text-primary-dark">UI/UX "Waste-Less" App</h3>Interface design for a waste management application. Project for Gemastik 2023 competition.
-
+                        <h3 class="font-bold text-lg text-primary-light dark:text-primary-dark">LearnPath Platform</h3>
+                        <p class="text-sm mt-2 mb-4 text-gray-600 dark:text-gray-400">A conceptual project for a personalized educational platform that suggests learning paths based on user goals.</p>
                          <div class="flex flex-wrap gap-2">
-                            <span class="text-xs bg-red-100 text-red-800 px-2 py-1 rounded-full dark:bg-red-900 dark:text-red-300">UI/UX</span>
-                            <span class="text-xs bg-blue-100 text-blue-800 px-2 py-1 rounded-full dark:bg-blue-900 dark:text-blue-300">Figma</span>
-                            <span class="text-xs bg-green-100 text-green-800 px-2 py-1 rounded-full dark:bg-green-900 dark:text-green-300">Kompetisi</span>
-                        </div>
-                    </div>
-                </div>
-                <!-- Project Card 3 (Placeholder) -->
-                <div class="bg-white dark:bg-slate-800 rounded-lg shadow-lg overflow-hidden transform hover:-translate-y-2 transition-transform duration-300">
-                    <img src="https://placehold.co/600x400/e0e7ff/3730a3?text=Proyek+Berikutnya" alt="Proyek Berikutnya" class="w-full h-48 object-cover">
-                    <div class="p-6">
-                        <h3 class="font-bold text-lg text-primary-light dark:text-primary-dark">Your Next Project</h3>Describe another cool project you've worked on here.
-
-                         <div class="flex flex-wrap gap-2">
-                            <span class="text-xs bg-gray-100 text-gray-800 px-2 py-1 rounded-full dark:bg-gray-700 dark:text-gray-300">Kategori</span>
+                            <span class="text-xs bg-green-100 text-green-800 px-2 py-1 rounded-full dark:bg-green-900 dark:text-green-300">Edutech</span>
+                            <span class="text-xs bg-blue-100 text-blue-800 px-2 py-1 rounded-full dark:bg-blue-900 dark:text-blue-300">UI/UX</span>
                         </div>
                     </div>
                 </div>
@@ -228,50 +269,30 @@
 
         <!-- Certificates Section -->
         <section id="certificates" class="py-20">
-            <h2 class="text-3xl font-bold text-center text-primary-light dark:text-primary-dark mb-12">Licenses & Certifications</h2>
-            <div class="max-w-4xl mx-auto grid md:grid-cols-2 gap-6">
-                <!-- Certificate 1 -->
-                <div class="bg-white dark:bg-slate-800 rounded-lg shadow-md p-6 flex items-center space-x-4">
-                    <div class="flex-shrink-0">
-                        <i data-lucide="award" class="w-10 h-10 text-accent-light dark:text-accent-dark"></i>
+            <h2 class="text-3xl font-bold text-center text-primary-light dark:text-primary-dark mb-12">Licenses & Certificates</h2>
+            <div class="max-w-xl mx-auto">
+                <a href="#" class="certificate-item" data-src="https://placehold.co/1200x800/f1f5f9/111827?text=Junior+Cyber+Security+Certificate">
+                    <div class="bg-white dark:bg-slate-800 rounded-lg shadow-md p-6 flex items-center space-x-4 h-full hover:shadow-xl transition-shadow">
+                        <div class="flex-shrink-0"><i data-lucide="shield-check" class="w-10 h-10 text-accent-light dark:text-accent-dark"></i></div>
+                        <div>
+                            <h3 class="font-bold text-primary-light dark:text-primary-dark">Junior Cyber Security</h3>
+                            <p class="text-sm text-gray-600 dark:text-gray-400">Issued by BNSP | Jul 2025</p>
+                            <p class="text-xs mt-1 text-gray-500">Completed intensive training in information protection, internet security, access control, log management, and policy implementation.</p>
+                        </div>
                     </div>
-                    <div>
-                        <h3 class="font-bold text-primary-light dark:text-primary-dark">Dasar-Dasar Desain Grafis</h3>
-                        <p class="text-sm text-gray-600 dark:text-gray-400">Issued by Baparekraf Digital Talent</p>
-                   </div>
-                </div>
-                <!-- Certificate 2 -->
-                <div class="bg-white dark:bg-slate-800 rounded-lg shadow-md p-6 flex items-center space-x-4">
-                    <div class="flex-shrink-0">
-                        <i data-lucide="award" class="w-10 h-10 text-accent-light dark:text-accent-dark"></i>
-                    </div>
-                    <div>
-                        <h3 class="font-bold text-primary-light dark:text-primary-dark">Belajar Dasar-Dasar Desain UI/UX</h3>
-                        <p class="text-sm text-gray-600 dark:text-gray-400">Issued by Skilvul</p>
-                   </div>
-                </div>
-                <!-- Certificate 3 -->
-                <div class="bg-white dark:bg-slate-800 rounded-lg shadow-md p-6 flex items-center space-x-4">
-                    <div class="flex-shrink-0">
-                        <i data-lucide="award" class="w-10 h-10 text-accent-light dark:text-accent-dark"></i>
-                    </div>
-                    <div>
-                        <h3 class="font-bold text-primary-light dark:text-primary-dark">UI/UX Design</h3>
-                        <p class="text-sm text-gray-600 dark:text-gray-400">Issued by MySkill</p>
-                   </div>
-                </div>
+                </a>
             </div>
         </section>
 
         <!-- Contact Section -->
         <section id="contact" class="py-20 text-center">
-            <h2 class="text-3xl font-bold text-primary-light dark:text-primary-dark mb-4">Contact Me</h2>
-            <p class="max-w-xl mx-auto mb-8">I am always open to discussions, collaborations, or new opportunities. Feel free to contact me!
-
-            </p> 
-            <a href="mailto:gantidenganemailanda@example.com" class="bg-accent-light dark:bg-accent-dark text-white font-bold py-3 px-8 rounded-full hover:bg-opacity-90 dark:hover:bg-opacity-90 transition-all duration-300 inline-flex items-center">
+            <h2 class="text-3xl font-bold text-primary-light dark:text-primary-dark mb-4">Get In Touch</h2>
+            <p class="max-w-xl mx-auto mb-8">
+                I'm always open to discussing new projects, creative ideas, or opportunities to be part of your visions.
+            </p>
+            <a href="mailto:its.ithaaa@gmail.com" class="bg-accent-light dark:bg-accent-dark text-white font-bold py-3 px-8 rounded-full hover:bg-opacity-90 dark:hover:bg-opacity-90 transition-all duration-300 inline-flex items-center">
                 <i data-lucide="mail" class="w-5 h-5 mr-2"></i>
-                Kirim Email
+                Send Email
             </a>
         </section>
     </main>
@@ -279,20 +300,35 @@
     <!-- Footer -->
     <footer class="bg-white dark:bg-slate-800 border-t border-gray-200 dark:border-gray-700">
         <div class="container mx-auto px-6 py-6 text-center text-gray-600 dark:text-gray-400">
-            <p>&copy; 2024 Talitha Khansa. Made with <span class="text-accent-light dark:text-accent-dark">❤️</span> and code.</p>
+            <p>&copy; 2025 Talitha Khansa Fahira. Built with <span class="text-accent-light dark:text-accent-dark">❤️</span> and code.</p>
         </div>
     </footer>
 
+    <!-- Certificate Modal -->
+    <div id="certificate-modal" class="modal-overlay pointer-events-none fixed w-full h-full top-0 left-0 flex items-center justify-center z-50 opacity-0 transition-opacity duration-300">
+        <div class="modal-overlay-bg absolute w-full h-full bg-black opacity-75"></div>
+        <div class="modal-container bg-white dark:bg-slate-800 w-11/12 md:max-w-4xl mx-auto rounded shadow-lg z-50 overflow-y-auto">
+            <div class="modal-content py-4 text-left px-6">
+                <div class="flex justify-end items-center pb-3">
+                    <button class="modal-close cursor-pointer z-50">
+                        <i data-lucide="x" class="text-text-light dark:text-text-dark"></i>
+                    </button>
+                </div>
+                <img id="modal-img" src="" alt="Certificate Image" class="w-full rounded">
+            </div>
+        </div>
+    </div>
+
+
     <script>
-        // Inisialisasi ikon Lucide
+        // Initialize Lucide icons
         lucide.createIcons();
 
-        // Logika untuk Dark/Light Mode Toggle
+        // Dark/Light Mode Toggle Logic
         const themeToggleBtn = document.getElementById('theme-toggle');
         const themeToggleDarkIcon = document.getElementById('theme-toggle-dark-icon');
         const themeToggleLightIcon = document.getElementById('theme-toggle-light-icon');
 
-        // Cek tema dari localStorage atau preferensi sistem
         if (localStorage.getItem('color-theme') === 'dark' || (!('color-theme' in localStorage) && window.matchMedia('(prefers-color-scheme: dark)').matches)) {
             document.documentElement.classList.add('dark');
             themeToggleLightIcon.classList.remove('hidden');
@@ -302,11 +338,8 @@
         }
 
         themeToggleBtn.addEventListener('click', function() {
-            // Toggle ikon
             themeToggleDarkIcon.classList.toggle('hidden');
             themeToggleLightIcon.classList.toggle('hidden');
-
-            // Toggle tema
             if (localStorage.getItem('color-theme')) {
                 if (localStorage.getItem('color-theme') === 'light') {
                     document.documentElement.classList.add('dark');
@@ -326,7 +359,7 @@
             }
         });
         
-        // Efek header mengecil saat scroll
+        // Shrinking Header on Scroll
         const header = document.getElementById('header');
         window.addEventListener('scroll', () => {
             if (window.scrollY > 50) {
@@ -337,6 +370,32 @@
                 header.classList.remove('py-2');
             }
         });
+
+        // Certificate Modal Logic
+        const modalOverlay = document.getElementById('certificate-modal');
+        const modalImg = document.getElementById('modal-img');
+        const certificateItems = document.querySelectorAll('.certificate-item');
+        
+        const openModal = (e) => {
+            e.preventDefault();
+            const imgSrc = e.currentTarget.getAttribute('data-src');
+            modalImg.src = imgSrc;
+            modalOverlay.classList.remove('pointer-events-none', 'opacity-0');
+            document.body.classList.add('modal-active');
+        };
+
+        const closeModal = () => {
+            modalOverlay.classList.add('pointer-events-none', 'opacity-0');
+            document.body.classList.remove('modal-active');
+        };
+
+        certificateItems.forEach(item => {
+            item.addEventListener('click', openModal);
+        });
+
+        document.querySelector('.modal-close').addEventListener('click', closeModal);
+        document.querySelector('.modal-overlay-bg').addEventListener('click', closeModal);
+
     </script>
 </body>
 </html>
