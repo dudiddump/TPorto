@@ -121,7 +121,7 @@
             <!-- Profile Picture and Intro Text -->
             <div class="grid md:grid-cols-5 gap-10 items-center mb-16">
                 <div class="md:col-span-2">
-                     <img src="http://googleusercontent.com/file_content/1" onerror="this.onerror=null;this.src='https://placehold.co/400x400/e0e7ff/1e3a8a?text=Your+Photo';" alt="Photo of Talitha Khansa Fahira" class="rounded-lg shadow-lg w-full max-w-sm mx-auto">
+                     <img src="MyPhoto.jpg" onerror="this.onerror=null;this.src='https://placehold.co/400x400/e0e7ff/1e3a8a?text=Your+Photo';" alt="Photo of Talitha Khansa Fahira" class="rounded-lg shadow-lg w-full max-w-sm mx-auto">
                 </div>
                 <div class="md:col-span-3">
                     <p class="text-lg text-gray-800 dark:text-gray-200">
@@ -240,7 +240,7 @@
             <h2 class="text-3xl font-bold text-center text-primary-light dark:text-primary-dark mb-12">Featured Projects</h2>
             <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
                 <!-- Project Card 1 -->
-                <a href="./P-BI OJK Hackathon 2025.pdf" target="_blank" class="block bg-white dark:bg-slate-800 rounded-lg shadow-lg overflow-hidden transform hover:-translate-y-2 transition-transform duration-300">
+                <a href="#" class="project-item block bg-white dark:bg-slate-800 rounded-lg shadow-lg overflow-hidden transform hover:-translate-y-2 transition-transform duration-300 cursor-pointer" data-src="./P-BI OJK Hackathon 2025.pdf">
                     <img src="https://placehold.co/600x400/fecdd3/be123c?text=BI+OJK+Hackathon" alt="BI OJK Hackathon 2025" class="w-full h-48 object-cover">
                     <div class="p-6">
                         <h3 class="font-bold text-lg text-primary-light dark:text-primary-dark">BI OJK Hackathon 2025</h3>
@@ -253,7 +253,7 @@
                     </div>
                 </a>
                 <!-- Project Card 2 -->
-                <a href="./P-Hackathon Purse.pdf" target="_blank" class="block bg-white dark:bg-slate-800 rounded-lg shadow-lg overflow-hidden transform hover:-translate-y-2 transition-transform duration-300">
+                <a href="#" class="project-item block bg-white dark:bg-slate-800 rounded-lg shadow-lg overflow-hidden transform hover:-translate-y-2 transition-transform duration-300 cursor-pointer" data-src="./P-Hackathon Purse.pdf">
                     <img src="https://placehold.co/600x400/bfdbfe/1e3a8a?text=Hackathon+Purse" alt="Hackathon Purse Project" class="w-full h-48 object-cover">
                     <div class="p-6">
                         <h3 class="font-bold text-lg text-primary-light dark:text-primary-dark">Hackathon Purse</h3>
@@ -266,7 +266,7 @@
                     </div>
                 </a>
                 <!-- Project Card 3 -->
-                <a href="./P-LearnPath.pdf" target="_blank" class="block bg-white dark:bg-slate-800 rounded-lg shadow-lg overflow-hidden transform hover:-translate-y-2 transition-transform duration-300">
+                <a href="#" class="project-item block bg-white dark:bg-slate-800 rounded-lg shadow-lg overflow-hidden transform hover:-translate-y-2 transition-transform duration-300 cursor-pointer" data-src="./P-LearnPath.pdf">
                     <img src="https://placehold.co/600x400/e0e7ff/3730a3?text=LearnPath+Project" alt="LearnPath Project" class="w-full h-48 object-cover">
                     <div class="p-6">
                         <h3 class="font-bold text-lg text-primary-light dark:text-primary-dark">LearnPath Platform</h3>
@@ -332,6 +332,19 @@
         </div>
     </div>
 
+    <!-- Project Modal -->
+    <div id="project-modal" class="modal-overlay pointer-events-none fixed w-full h-full top-0 left-0 flex items-center justify-center z-50 opacity-0 transition-opacity duration-300">
+        <div class="modal-overlay-bg absolute w-full h-full bg-black opacity-75"></div>
+        <div class="modal-container bg-white dark:bg-slate-800 w-11/12 h-5/6 md:max-w-4xl mx-auto rounded shadow-lg z-50 overflow-y-auto flex flex-col">
+            <div class="flex justify-end items-center p-3 border-b dark:border-gray-600">
+                 <button class="project-modal-close cursor-pointer z-50">
+                    <i data-lucide="x" class="text-text-light dark:text-text-dark"></i>
+                </button>
+            </div>
+            <iframe id="project-iframe" class="w-full h-full" src=""></iframe>
+        </div>
+    </div>
+
 
     <script>
         // Initialize Lucide icons
@@ -385,29 +398,50 @@
         });
 
         // Certificate Modal Logic
-        const modalOverlay = document.getElementById('certificate-modal');
-        const modalImg = document.getElementById('modal-img');
+        const certModalOverlay = document.getElementById('certificate-modal');
+        const certModalImg = document.getElementById('modal-img');
         const certificateItems = document.querySelectorAll('.certificate-item');
         
-        const openModal = (e) => {
+        const openCertModal = (e) => {
             e.preventDefault();
             const imgSrc = e.currentTarget.getAttribute('data-src');
-            modalImg.src = imgSrc;
-            modalOverlay.classList.remove('pointer-events-none', 'opacity-0');
+            certModalImg.src = imgSrc;
+            certModalOverlay.classList.remove('pointer-events-none', 'opacity-0');
             document.body.classList.add('modal-active');
         };
 
-        const closeModal = () => {
-            modalOverlay.classList.add('pointer-events-none', 'opacity-0');
+        const closeCertModal = () => {
+            certModalOverlay.classList.add('pointer-events-none', 'opacity-0');
             document.body.classList.remove('modal-active');
         };
 
-        certificateItems.forEach(item => {
-            item.addEventListener('click', openModal);
-        });
+        certificateItems.forEach(item => item.addEventListener('click', openCertModal));
+        document.querySelector('.modal-close').addEventListener('click', closeCertModal);
+        certModalOverlay.querySelector('.modal-overlay-bg').addEventListener('click', closeCertModal);
 
-        document.querySelector('.modal-close').addEventListener('click', closeModal);
-        document.querySelector('.modal-overlay-bg').addEventListener('click', closeModal);
+
+        // Project Modal Logic
+        const projectModalOverlay = document.getElementById('project-modal');
+        const projectIframe = document.getElementById('project-iframe');
+        const projectItems = document.querySelectorAll('.project-item');
+
+        const openProjectModal = (e) => {
+            e.preventDefault();
+            const pdfSrc = e.currentTarget.getAttribute('data-src');
+            projectIframe.src = pdfSrc;
+            projectModalOverlay.classList.remove('pointer-events-none', 'opacity-0');
+            document.body.classList.add('modal-active');
+        };
+
+        const closeProjectModal = () => {
+            projectModalOverlay.classList.add('pointer-events-none', 'opacity-0');
+            projectIframe.src = ""; // Clear iframe src to stop loading
+            document.body.classList.remove('modal-active');
+        };
+
+        projectItems.forEach(item => item.addEventListener('click', openProjectModal));
+        document.querySelector('.project-modal-close').addEventListener('click', closeProjectModal);
+        projectModalOverlay.querySelector('.modal-overlay-bg').addEventListener('click', closeProjectModal);
 
     </script>
 </body>
