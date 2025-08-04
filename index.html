@@ -1,14 +1,342 @@
-<!doctype html>
-<html lang="en">
+<!DOCTYPE html>
+<html lang="en" class="scroll-smooth">
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Hello World</title>
-  <link href='/style.css' rel='stylesheet'>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Portfolio | Talitha Khansa</title>
+    
+    <!-- Tailwind CSS CDN -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    
+    <!-- Google Fonts: Orbitron & Exo 2 -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@400;700;900&family=Exo+2:wght@400;500;600&display=swap" rel="stylesheet">
+    
+    <!-- Lucide Icons -->
+    <script src="https://unpkg.com/lucide@latest"></script>
+
+    <style>
+        /* Menggunakan font Exo 2 sebagai default untuk body */
+        body {
+            font-family: 'Exo 2', sans-serif;
+        }
+        /* Menggunakan font Orbitron untuk semua heading */
+        h1, h2, h3 {
+            font-family: 'Orbitron', sans-serif;
+        }
+        /* Efek backdrop-blur untuk header */
+        .header-blur {
+            backdrop-filter: blur(10px);
+            -webkit-backdrop-filter: blur(10px);
+        }
+        /* Style untuk timeline */
+        .timeline-item:nth-child(odd) .timeline-content {
+            text-align: right;
+        }
+    </style>
+    <script>
+        // Konfigurasi Tailwind CSS untuk tema warna
+        tailwind.config = {
+            darkMode: 'class',
+            theme: {
+                extend: {
+                    fontFamily: {
+                        'orbitron': ['Orbitron', 'sans-serif'],
+                        'exo2': ['Exo 2', 'sans-serif'],
+                    },
+                    colors: {
+                        // Light Mode Colors
+                        'primary-light': '#1e3a8a', // Biru tua
+                        'secondary-light': '#f1f5f9', // Latar belakang abu-abu muda
+                        'accent-light': '#be123c', // Merah mawar
+                        'text-light': '#111827', // Teks hitam pekat
+                        
+                        // Dark Mode Colors
+                        'primary-dark': '#60a5fa', // Biru muda
+                        'secondary-dark': '#0f172a', // Latar belakang biru sangat tua
+                        'accent-dark': '#f43f5e', // Merah muda cerah
+                        'text-dark': '#e2e8f0', // Teks putih keabuan
+                    }
+                }
+            }
+        }
+    </script>
 </head>
-<body>
-  <h1>Hello, world!</h1>
-  <button onclick="console.log('hello');">Press me</button>
-  <script defer type="text/javascript" src="/main.js"></script>
+<body class="bg-secondary-light dark:bg-secondary-dark text-text-light dark:text-text-dark transition-colors duration-500">
+
+    <!-- Header / Navbar -->
+    <header id="header" class="fixed top-0 left-0 right-0 z-50 transition-all duration-300 header-blur bg-white/70 dark:bg-secondary-dark/70">
+        <div class="container mx-auto px-6 py-4 flex justify-between items-center">
+            <a href="#" class="text-xl font-bold text-primary-light dark:text-primary-dark" style="font-family: 'Orbitron', sans-serif;">Talitha Khansa</a>
+            <nav class="hidden md:flex items-center space-x-8">
+                <a href="#about" class="hover:text-accent-light dark:hover:text-accent-dark transition-colors">About</a>
+                <a href="#experience" class="hover:text-accent-light dark:hover:text-accent-dark transition-colors">Experience</a>
+                <a href="#projects" class="hover:text-accent-light dark:hover:text-accent-dark transition-colors">Projects</a>
+                <a href="#certificates" class="hover:text-accent-light dark:hover:text-accent-dark transition-colors">Certificates</a>
+                <a href="#contact" class="hover:text-accent-light dark:hover:text-accent-dark transition-colors">Contact</a>
+            </nav>
+            <div class="flex items-center">
+                <button id="theme-toggle" class="p-2 rounded-full hover:bg-gray-200 dark:hover:bg-gray-700 transition-colors">
+                    <svg id="theme-toggle-dark-icon" class="hidden h-5 w-5" fill="currentColor" viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg"><path d="M17.293 13.293A8 8 0 016.707 2.707a8.001 8.001 0 1010.586 10.586z"></path></svg>
+                    <svg id="theme-toggle-light-icon" class="hidden h-5 w-5" fill="currentColor" viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg"><path d="M10 2a1 1 0 011 1v1a1 1 0 11-2 0V3a1 1 0 011-1zm4 8a4 4 0 11-8 0 4 4 0 018 0zm-.464 4.95l.707.707a1 1 0 001.414-1.414l-.707-.707a1 1 0 00-1.414 1.414zm2.12-10.607a1 1 0 010 1.414l-.706.707a1 1 0 11-1.414-1.414l.707-.707a1 1 0 011.414 0zM17 11a1 1 0 100-2h-1a1 1 0 100 2h1zm-7 4a1 1 0 011 1v1a1 1 0 11-2 0v-1a1 1 0 011-1zM5.05 5.05A1 1 0 003.636 6.464l.707.707a1 1 0 001.414-1.414l-.707-.707zM3 11a1 1 0 100-2H2a1 1 0 100 2h1zM6.464 14.95l.707-.707a1 1 0 10-1.414-1.414l-.707.707a1 1 0 001.414 1.414z"></path></svg>
+                </button>
+            </div>
+        </div>
+    </header>
+
+    <main class="container mx-auto px-6 pt-24 md:pt-32">
+        <!-- Hero Section -->
+        <section id="hero" class="text-center py-20">
+            <h1 class="text-4xl md:text-6xl font-bold text-primary-light dark:text-primary-dark leading-tight">Talitha Khansa</h1>
+            <p class="mt-4 text-lg md:text-xl font-medium text-gray-600 dark:text-gray-300">Graphic Designer & UI/UX Enthusiast</p>
+            <p class="mt-6 max-w-2xl mx-auto text-base">A Computer Engineering student passionate about creating visually appealing and user-friendly digital products through graphic and UI/UX design.
+
+            </p>
+            <div class="mt-8 flex justify-center space-x-4">
+                <a href="https://www.linkedin.com/in/talithakhansa" target="_blank" class="p-3 rounded-full bg-gray-200 dark:bg-gray-700 hover:bg-accent-light dark:hover:bg-accent-dark text-gray-700 dark:text-gray-200 hover:text-white dark:hover:text-white transition-all duration-300">
+                    <i data-lucide="linkedin" class="w-6 h-6"></i>
+                </a>
+                <a href="#" class="p-3 rounded-full bg-gray-200 dark:bg-gray-700 hover:bg-accent-light dark:hover:bg-accent-dark text-gray-700 dark:text-gray-200 hover:text-white dark:hover:text-white transition-all duration-300">
+                    <i data-lucide="github" class="w-6 h-6"></i>
+                </a>
+                <a href="#" class="p-3 rounded-full bg-gray-200 dark:bg-gray-700 hover:bg-accent-light dark:hover:bg-accent-dark text-gray-700 dark:text-gray-200 hover:text-white dark:hover:text-white transition-all duration-300">
+                    <i data-lucide="dribbble" class="w-6 h-6"></i>
+                </a>
+                <a href="mailto:gantidenganemailanda@example.com" class="p-3 rounded-full bg-gray-200 dark:bg-gray-700 hover:bg-accent-light dark:hover:bg-accent-dark text-gray-700 dark:text-gray-200 hover:text-white dark:hover:text-white transition-all duration-300">
+                    <i data-lucide="mail" class="w-6 h-6"></i>
+                </a>
+            </div>
+        </section>
+
+        <!-- About Section -->
+        <section id="about" class="py-20">
+            <h2 class="text-3xl font-bold text-center text-primary-light dark:text-primary-dark mb-12">About Me</h2>
+            <div class="grid md:grid-cols-5 gap-10 items-center">
+                <div class="md:col-span-2">
+                    <img src="https://media.licdn.com/dms/image/D5603AQF39F80p_F5hQ/profile-displayphoto-shrink_800_800/0/1710131871329?e=1728518400&v=beta&t=H-3uX9-e93H2J02p9pD9k1Y0m7s7z5w3B4C6w2R7x3Y" onerror="this.onerror=null;this.src='https://placehold.co/400x400/e2e8f0/1e3a8a?text=Foto+Anda';" alt="Foto Talitha Khansa" class="rounded-lg shadow-lg w-full">
+                </div>
+                <div class="md:col-span-3">
+                    <p class="mb-4">
+                        I am a Computer Engineering student at Politeknik Negeri Jakarta (class of 2022) with a great passion for the world of design. I believe that good design is a blend of beautiful aesthetics and intuitive functionality.
+                    </p> 
+                    <p class="mb-6">
+                        Selama berkuliah, saya aktif terlibat dalam berbagai kepanitiaan dan organisasi, serta mengikuti kompetisi untuk mengasah kemampuan saya dalam desain UI/UX dan desain grafis. Saya selalu antusias untuk mempelajari hal-hal baru dan berkolaborasi dalam tim untuk menciptakan solusi digital yang berdampak.
+                    </p>
+                    <h3 class="text-lg font-semibold mb-4 text-primary-light dark:text-primary-dark">Keahlian Utama:</h3>
+                    <div class="flex flex-wrap gap-3">
+                        <span class="bg-blue-100 text-blue-800 text-sm font-medium me-2 px-2.5 py-0.5 rounded dark:bg-blue-900 dark:text-blue-300">Figma</span>
+                        <span class="bg-red-100 text-red-800 text-sm font-medium me-2 px-2.5 py-0.5 rounded dark:bg-red-900 dark:text-red-300">UI/UX Design</span>
+                        <span class="bg-green-100 text-green-800 text-sm font-medium me-2 px-2.5 py-0.5 rounded dark:bg-green-900 dark:text-green-300">Graphic Design</span>
+                        <span class="bg-yellow-100 text-yellow-800 text-sm font-medium me-2 px-2.5 py-0.5 rounded dark:bg-yellow-900 dark:text-yellow-300">Adobe Photoshop</span>
+                        <span class="bg-indigo-100 text-indigo-800 text-sm font-medium me-2 px-2.5 py-0.5 rounded dark:bg-indigo-900 dark:text-indigo-300">Adobe Illustrator</span>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Experience Section -->
+        <section id="experience" class="py-20">
+            <h2 class="text-3xl font-bold text-center text-primary-light dark:text-primary-dark mb-12">Experience</h2>
+            <div class="relative max-w-3xl mx-auto">
+                <div class="absolute left-1/2 w-0.5 h-full bg-gray-300 dark:bg-gray-600 transform -translate-x-1/2"></div>
+                
+                <!-- Experience Item 1 -->
+                <div class="mb-8 flex justify-between items-center w-full timeline-item">
+                    <div class="order-1 w-5/12"></div>
+                    <div class="z-20 flex items-center order-1 bg-accent-light dark:bg-accent-dark shadow-xl w-8 h-8 rounded-full">
+                        <i data-lucide="briefcase" class="w-4 h-4 mx-auto text-white"></i>
+                    </div>
+                    <div class="order-1 bg-white dark:bg-slate-800 rounded-lg shadow-xl w-5/12 px-6 py-4 timeline-content">
+                        <h3 class="font-bold text-primary-light dark:text-primary-dark text-lg">Graphic Designer</h3>
+                        <p class="text-sm font-medium text-gray-600 dark:text-gray-400">Himpunan Mahasiswa Teknik Komputer PNJ</p>
+                        <p class="text-sm text-gray-500 dark:text-gray-500">Aug 2023 - Present</p>
+                    </div>
+                </div>
+
+                <!-- Experience Item 2 -->
+                <div class="mb-8 flex justify-between flex-row-reverse items-center w-full timeline-item">
+                    <div class="order-1 w-5/12"></div>
+                    <div class="z-20 flex items-center order-1 bg-accent-light dark:bg-accent-dark shadow-xl w-8 h-8 rounded-full">
+                        <i data-lucide="users" class="w-4 h-4 mx-auto text-white"></i>
+                    </div>
+                    <div class="order-1 bg-white dark:bg-slate-800 rounded-lg shadow-xl w-5/12 px-6 py-4 timeline-content">
+                        <h3 class="font-bold text-primary-light dark:text-primary-dark text-lg">Staff of Creative Media</h3>
+                        <p class="text-sm font-medium text-gray-600 dark:text-gray-400">Pekan Olahraga dan Seni PNJ 2024</p>
+                        <p class="text-sm text-gray-500 dark:text-gray-500">Mar 2024 - May 2024</p>
+                    </div>
+                </div>
+
+                <!-- Experience Item 3 -->
+                <div class="mb-8 flex justify-between items-center w-full timeline-item">
+                    <div class="order-1 w-5/12"></div>
+                    <div class="z-20 flex items-center order-1 bg-accent-light dark:bg-accent-dark shadow-xl w-8 h-8 rounded-full">
+                        <i data-lucide="star" class="w-4 h-4 mx-auto text-white"></i>
+                    </div>
+                    <div class="order-1 bg-white dark:bg-slate-800 rounded-lg shadow-xl w-5/12 px-6 py-4 timeline-content">
+                        <h3 class="font-bold text-primary-light dark:text-primary-dark text-lg">Staff of Creative Division</h3>
+                        <p class="text-sm font-medium text-gray-600 dark:text-gray-400">Regeneration of HMTK PNJ 2023</p>
+                        <p class="text-sm text-gray-500 dark:text-gray-500">Oct 2023 - Dec 2023</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Projects Section -->
+        <section id="projects" class="py-20">
+            <h2 class="text-3xl font-bold text-center text-primary-light dark:text-primary-dark mb-12">Featured Projects</h2>
+            <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
+                <!-- Project Card 1 -->
+                <div class="bg-white dark:bg-slate-800 rounded-lg shadow-lg overflow-hidden transform hover:-translate-y-2 transition-transform duration-300">
+                    <img src="https://placehold.co/600x400/fecdd3/be123c?text=Help-U+App" alt="Project Help-U" class="w-full h-48 object-cover">
+                    <div class="p-6">
+                        <h3 class="font-bold text-lg text-primary-light dark:text-primary-dark">UI/UX "Help-U" App</h3>Interface design for a mental health application. Project for PNJ Innovation Fest 2024 Hackathon.
+
+                        <div class="flex flex-wrap gap-2">
+                            <span class="text-xs bg-red-100 text-red-800 px-2 py-1 rounded-full dark:bg-red-900 dark:text-red-300">UI/UX</span>
+                            <span class="text-xs bg-blue-100 text-blue-800 px-2 py-1 rounded-full dark:bg-blue-900 dark:text-blue-300">Figma</span>
+                            <span class="text-xs bg-purple-100 text-purple-800 px-2 py-1 rounded-full dark:bg-purple-900 dark:text-purple-300">Hackathon</span>
+                        </div>
+                    </div>
+                </div>
+                <!-- Project Card 2 -->
+                <div class="bg-white dark:bg-slate-800 rounded-lg shadow-lg overflow-hidden transform hover:-translate-y-2 transition-transform duration-300">
+                    <img src="https://placehold.co/600x400/bfdbfe/1e3a8a?text=Waste-Less+App" alt="Project Waste-Less" class="w-full h-48 object-cover">
+                    <div class="p-6">
+                        <h3 class="font-bold text-lg text-primary-light dark:text-primary-dark">UI/UX "Waste-Less" App</h3>Interface design for a waste management application. Project for Gemastik 2023 competition.
+
+                         <div class="flex flex-wrap gap-2">
+                            <span class="text-xs bg-red-100 text-red-800 px-2 py-1 rounded-full dark:bg-red-900 dark:text-red-300">UI/UX</span>
+                            <span class="text-xs bg-blue-100 text-blue-800 px-2 py-1 rounded-full dark:bg-blue-900 dark:text-blue-300">Figma</span>
+                            <span class="text-xs bg-green-100 text-green-800 px-2 py-1 rounded-full dark:bg-green-900 dark:text-green-300">Kompetisi</span>
+                        </div>
+                    </div>
+                </div>
+                <!-- Project Card 3 (Placeholder) -->
+                <div class="bg-white dark:bg-slate-800 rounded-lg shadow-lg overflow-hidden transform hover:-translate-y-2 transition-transform duration-300">
+                    <img src="https://placehold.co/600x400/e0e7ff/3730a3?text=Proyek+Berikutnya" alt="Proyek Berikutnya" class="w-full h-48 object-cover">
+                    <div class="p-6">
+                        <h3 class="font-bold text-lg text-primary-light dark:text-primary-dark">Your Next Project</h3>Describe another cool project you've worked on here.
+
+                         <div class="flex flex-wrap gap-2">
+                            <span class="text-xs bg-gray-100 text-gray-800 px-2 py-1 rounded-full dark:bg-gray-700 dark:text-gray-300">Kategori</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Certificates Section -->
+        <section id="certificates" class="py-20">
+            <h2 class="text-3xl font-bold text-center text-primary-light dark:text-primary-dark mb-12">Licenses & Certifications</h2>
+            <div class="max-w-4xl mx-auto grid md:grid-cols-2 gap-6">
+                <!-- Certificate 1 -->
+                <div class="bg-white dark:bg-slate-800 rounded-lg shadow-md p-6 flex items-center space-x-4">
+                    <div class="flex-shrink-0">
+                        <i data-lucide="award" class="w-10 h-10 text-accent-light dark:text-accent-dark"></i>
+                    </div>
+                    <div>
+                        <h3 class="font-bold text-primary-light dark:text-primary-dark">Dasar-Dasar Desain Grafis</h3>
+                        <p class="text-sm text-gray-600 dark:text-gray-400">Issued by Baparekraf Digital Talent</p>
+                   </div>
+                </div>
+                <!-- Certificate 2 -->
+                <div class="bg-white dark:bg-slate-800 rounded-lg shadow-md p-6 flex items-center space-x-4">
+                    <div class="flex-shrink-0">
+                        <i data-lucide="award" class="w-10 h-10 text-accent-light dark:text-accent-dark"></i>
+                    </div>
+                    <div>
+                        <h3 class="font-bold text-primary-light dark:text-primary-dark">Belajar Dasar-Dasar Desain UI/UX</h3>
+                        <p class="text-sm text-gray-600 dark:text-gray-400">Issued by Skilvul</p>
+                   </div>
+                </div>
+                <!-- Certificate 3 -->
+                <div class="bg-white dark:bg-slate-800 rounded-lg shadow-md p-6 flex items-center space-x-4">
+                    <div class="flex-shrink-0">
+                        <i data-lucide="award" class="w-10 h-10 text-accent-light dark:text-accent-dark"></i>
+                    </div>
+                    <div>
+                        <h3 class="font-bold text-primary-light dark:text-primary-dark">UI/UX Design</h3>
+                        <p class="text-sm text-gray-600 dark:text-gray-400">Issued by MySkill</p>
+                   </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Contact Section -->
+        <section id="contact" class="py-20 text-center">
+            <h2 class="text-3xl font-bold text-primary-light dark:text-primary-dark mb-4">Contact Me</h2>
+            <p class="max-w-xl mx-auto mb-8">I am always open to discussions, collaborations, or new opportunities. Feel free to contact me!
+
+            </p> 
+            <a href="mailto:gantidenganemailanda@example.com" class="bg-accent-light dark:bg-accent-dark text-white font-bold py-3 px-8 rounded-full hover:bg-opacity-90 dark:hover:bg-opacity-90 transition-all duration-300 inline-flex items-center">
+                <i data-lucide="mail" class="w-5 h-5 mr-2"></i>
+                Kirim Email
+            </a>
+        </section>
+    </main>
+
+    <!-- Footer -->
+    <footer class="bg-white dark:bg-slate-800 border-t border-gray-200 dark:border-gray-700">
+        <div class="container mx-auto px-6 py-6 text-center text-gray-600 dark:text-gray-400">
+            <p>&copy; 2024 Talitha Khansa. Made with <span class="text-accent-light dark:text-accent-dark">❤️</span> and code.</p>
+        </div>
+    </footer>
+
+    <script>
+        // Inisialisasi ikon Lucide
+        lucide.createIcons();
+
+        // Logika untuk Dark/Light Mode Toggle
+        const themeToggleBtn = document.getElementById('theme-toggle');
+        const themeToggleDarkIcon = document.getElementById('theme-toggle-dark-icon');
+        const themeToggleLightIcon = document.getElementById('theme-toggle-light-icon');
+
+        // Cek tema dari localStorage atau preferensi sistem
+        if (localStorage.getItem('color-theme') === 'dark' || (!('color-theme' in localStorage) && window.matchMedia('(prefers-color-scheme: dark)').matches)) {
+            document.documentElement.classList.add('dark');
+            themeToggleLightIcon.classList.remove('hidden');
+        } else {
+            document.documentElement.classList.remove('dark');
+            themeToggleDarkIcon.classList.remove('hidden');
+        }
+
+        themeToggleBtn.addEventListener('click', function() {
+            // Toggle ikon
+            themeToggleDarkIcon.classList.toggle('hidden');
+            themeToggleLightIcon.classList.toggle('hidden');
+
+            // Toggle tema
+            if (localStorage.getItem('color-theme')) {
+                if (localStorage.getItem('color-theme') === 'light') {
+                    document.documentElement.classList.add('dark');
+                    localStorage.setItem('color-theme', 'dark');
+                } else {
+                    document.documentElement.classList.remove('dark');
+                    localStorage.setItem('color-theme', 'light');
+                }
+            } else {
+                if (document.documentElement.classList.contains('dark')) {
+                    document.documentElement.classList.remove('dark');
+                    localStorage.setItem('color-theme', 'light');
+                } else {
+                    document.documentElement.classList.add('dark');
+                    localStorage.setItem('color-theme', 'dark');
+                }
+            }
+        });
+        
+        // Efek header mengecil saat scroll
+        const header = document.getElementById('header');
+        window.addEventListener('scroll', () => {
+            if (window.scrollY > 50) {
+                header.classList.add('py-2');
+                header.classList.remove('py-4');
+            } else {
+                header.classList.add('py-4');
+                header.classList.remove('py-2');
+            }
+        });
+    </script>
 </body>
 </html>
